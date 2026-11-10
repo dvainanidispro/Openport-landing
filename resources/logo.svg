@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="80" viewBox="0 0 270 80" fill="none">
+    <!-- Η πύλη του οργανισμού και η έξοδος των δεδομένων. -->
+    <path d="M60 24V16Q60 12 56 12H16Q12 12 12 16V64Q12 68 16 68H56Q60 68 60 64V56" stroke="#00779E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M38 30H68M38 40H78M38 50H68" stroke="#35BCE9" stroke-width="5" stroke-linecap="round"/>
+    <!-- Το όνομα της εφαρμογής. -->
+    <text x="96" y="54" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1"><tspan fill="#DEE2E6">Open</tspan><tspan fill="#35BCE9">Port</tspan></text>
+</svg>

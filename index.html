@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="el" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e1d29">
+    <meta name="description" content="OpenPort: η πύλη ανοικτών δεδομένων του φορέα σας. Δημοσίευση μέσω REST API και αρχείων, τεκμηρίωση και προετοιμασία στοιχείων για το data.gov.gr.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="el_GR">
+    <meta property="og:title" content="OpenPort — Τα δεδομένα σας, ανοικτά στον κόσμο.">
+    <meta property="og:description" content="Η πλατφόρμα που βοηθά τους δημόσιους φορείς να καλύπτουν τις απαιτήσεις του πλαισίου για τα ανοικτά δεδομένα.">
+    <title>OpenPort — Ανοικτά δεδομένα για δημόσιους φορείς</title>
+    <link rel="icon" href="resources/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/style.css">
+    <script defer src="resources/script.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+            <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+            <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14m-1-9H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-4"/></symbol>
+            <symbol id="icon-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+            <symbol id="icon-folder" viewBox="0 0 24 24"><path d="M3 7V5a1 1 0 0 1 1-1h6l3 3h7a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7Z"/></symbol>
+            <symbol id="icon-code" viewBox="0 0 24 24"><path d="m7 6-6 6 6 6m10-12 6 6-6 6M14 3l-4 18"/></symbol>
+            <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></symbol>
+            <symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Zm0 0v15"/></symbol>
+            <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+            <symbol id="icon-document" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8m-8 4h6"/></symbol>
+            <symbol id="icon-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-5 8-9 10-4-2-9-5-9-10V6l9-4Z"/><path d="m8 12 3 3 5-6"/></symbol>
+            <symbol id="icon-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5"/><path d="m12 12 9 9m-6-6 3-3m0 6 3-3"/></symbol>
+            <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 3v18h17M9 16v-5m5 5V7m5 9V4"/></symbol>
+        </defs>
+    </svg>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="OpenPort — αρχική">
+                <img src="resources/logo.svg" width="270" height="80" alt="OpenPort">
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>
+                <span>Μενού</span><span class="menu-lines" aria-hidden="true"></span>
+            </button>
+            <nav id="site-navigation" class="site-navigation" aria-label="Κύρια πλοήγηση">
+                <a href="#framework">Το πλαίσιο</a>
+                <a href="#features">Χαρακτηριστικά</a>
+                <a href="#how-it-works">Πώς λειτουργεί</a>
+                <a class="button button-small" href="https://www.computerstudio.gr/epikoinonia/" target="_blank" rel="noopener noreferrer">Επικοινωνήστε μαζί μας <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="top" class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Ανοικτά δεδομένα για δημόσιους φορείς</p>
+                    <h1 id="hero-title">Τα δεδομένα σας,<br><span class="text-accent">ανοικτά στον κόσμο.</span></h1>
+                    <p class="hero-lead">Η δική σας πύλη ανοικτών δεδομένων. Σχεδιασμένη για τις απαιτήσεις του ελληνικού και ευρωπαϊκού πλαισίου.</p>
+                    <p class="hero-description">Με το OpenPort επιλέγετε τι δημοσιεύετε, οργανώνετε τα σύνολά σας και προσφέρετε πρόσβαση μέσω API και αρχείων. Όλα από ένα ενιαίο περιβάλλον διαχείρισης.</p>
+                    <a class="button" href="https://www.computerstudio.gr/epikoinonia/" target="_blank" rel="noopener noreferrer">Επικοινωνήστε μαζί μας <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+                    <p class="hero-note"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg> Στη δική σας υποδομή. Με την ταυτότητα του φορέα σας.</p>
+                </div>
+
+                <figure class="data-diagram" aria-labelledby="diagram-caption">
+                    <figcaption id="diagram-caption"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg> Η δημόσια πύλη του φορέα σας</figcaption>
+                    <div class="diagram-sources">
+                        <div class="source-node"><svg class="icon" aria-hidden="true"><use href="#icon-database"/></svg><span>PostgreSQL<small>Πίνακες &amp; προβολές</small></span></div>
+                        <div class="source-node"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg><span>Αρχεία<small>Φάκελοι &amp; S3 storage</small></span></div>
+                    </div>
+                    <div class="diagram-connector connector-in" aria-hidden="true"><span></span><span></span></div>
+                    <div class="gateway">
+                        <img src="resources/icon.svg" width="88" height="80" alt="">
+                        <div><span class="gateway-name">Open<span class="text-accent">Port</span></span><span class="gateway-description">Οργάνωση · Τεκμηρίωση · Δημοσίευση</span></div>
+                    </div>
+                    <div class="diagram-connector connector-out" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <div class="diagram-outputs">
+                        <div class="output-node"><svg class="icon" aria-hidden="true"><use href="#icon-code"/></svg><strong>REST API</strong><span>JSON</span></div>
+                        <div class="output-node"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg><strong>Αρχεία</strong><span>Άμεση λήψη</span></div>
+                        <div class="output-node"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg><strong>Τεκμηρίωση</strong><span>OpenAPI</span></div>
+                    </div>
+                </figure>
+            </div>
+            <div class="container">
+                <div class="hero-foundations">
+                    <span class="foundation-label">Μια οργανωμένη προσέγγιση</span>
+                    <span><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Διάθεση μέσω API</span>
+                    <span><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Κατανοητή τεκμηρίωση</span>
+                    <span><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> Στοιχεία για το data.gov.gr</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="framework" class="section section-tinted" aria-labelledby="framework-title">
+            <div class="container framework-grid">
+                <div class="section-intro">
+                    <p class="eyebrow">Το κανονιστικό πλαίσιο</p>
+                    <h2 id="framework-title">Από την υποχρέωση,<br>στην <span class="text-accent">πράξη.</span></h2>
+                    <p class="section-lead">Τα ανοικτά δεδομένα χρειάζονται οργανωμένη διάθεση, σαφείς όρους και τεκμηρίωση που μπορεί να αξιοποιηθεί.</p>
+                    <p>Το OpenPort βοηθά τον φορέα σας να καλύπτει αυτές τις απαιτήσεις, συγκεντρώνοντας τα εργαλεία δημοσίευσης σε μία πλατφόρμα.</p>
+                    <div class="framework-note"><svg class="icon" aria-hidden="true"><use href="#icon-document"/></svg><span>Δεδομένα, άδειες και οδηγίες χρήσης.<br><strong>Σε ένα κοινό σημείο αναφοράς.</strong></span></div>
+                </div>
+                <div class="framework-references">
+                    <article class="reference">
+                        <div class="reference-heading"><span class="status-dot" aria-hidden="true"></span><span class="eyebrow">Ελληνικό πλαίσιο</span></div>
+                        <h3>Η διάθεση μέσω API σε προτεραιότητα</h3>
+                        <p>Ο ν. 4727/2020 ενσωματώνει την ευρωπαϊκή Οδηγία για τα Ανοικτά Δεδομένα. Η ΥΑ 11654 ΕΞ 2026 θέτει πρώτη τη διάθεση μέσω API, πριν από το απευθείας URL ή την ανάρτηση αρχείου.</p>
+                        <p class="reference-benefit">Με το OpenPort αποκτάτε τις διευθύνσεις πρόσβασης και την τεκμηρίωση για την καταχώριση στο data.gov.gr.</p>
+                        <div class="reference-links">
+                            <a href="https://amea.gov.gr/legislation/19/23" target="_blank" rel="noopener noreferrer">Ν. 4727/2020 <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg><span class="visually-hidden"> (νέα καρτέλα)</span></a>
+                            <a href="https://e-dm.gov.gr/wp-content/uploads/2026/05/11654-2026.pdf" target="_blank" rel="noopener noreferrer">ΥΑ 11654 ΕΞ 2026 · PDF <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg><span class="visually-hidden"> (νέα καρτέλα)</span></a>
+                        </div>
+                    </article>
+                    <article class="reference">
+                        <div class="reference-heading"><span class="status-dot" aria-hidden="true"></span><span class="eyebrow">Ευρωπαϊκό πλαίσιο · HVD</span></div>
+                        <h3>Δεδομένα υψηλής αξίας, έτοιμα για αξιοποίηση</h3>
+                        <p>Ο Εκτελεστικός Κανονισμός (ΕΕ) 2023/138 προβλέπει σήμανση των συνόλων υψηλής αξίας, μηχαναγνώσιμη διάθεση μέσω API και μαζική λήψη όπου ορίζεται.</p>
+                        <p class="reference-benefit">Υποστηρίξτε τη διάθεσή τους με σήμανση HVD, άδειες, όρους χρήσης, κριτήρια ποιότητας υπηρεσίας και στοιχεία επικοινωνίας.</p>
+                        <div class="reference-links"><a href="https://eur-lex.europa.eu/legal-content/EL/TXT/?uri=CELEX:32023R0138" target="_blank" rel="noopener noreferrer">Κανονισμός (ΕΕ) 2023/138 <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg><span class="visually-hidden"> (νέα καρτέλα)</span></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section" aria-labelledby="features-title">
+            <div class="container">
+                <div class="compact-heading">
+                    <p class="eyebrow">Χαρακτηριστικά</p>
+                    <h2 id="features-title">Όλα όσα χρειάζεται η δημοσίευση των δεδομένων σας.</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"/></svg></div>
+                        <h3>Η πύλη του δικού σας φορέα</h3>
+                        <p>Όνομα, λογότυπο και δημόσιος κατάλογος με την ταυτότητά σας. Οργανώστε Datasets και συνδέστε τα με Endpoints για API, αρχεία ή και τα δύο.</p>
+                        <span class="feature-detail">Datasets &amp; Endpoints</span>
+                    </article>
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-code"/></svg></div>
+                        <h3>Τα δεδομένα σας ως REST API</h3>
+                        <p>Δημοσιεύστε πίνακες και προβολές PostgreSQL σε JSON. Με ταξινόμηση, φίλτρα, σελιδοποίηση, αναζήτηση και επιλογή πεδίων.</p>
+                        <span class="feature-detail">Sort · Filter · Paging</span>
+                    </article>
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg></div>
+                        <h3>Αρχεία από τις δικές σας πηγές</h3>
+                        <p>Διαθέστε αρχεία από τοπικούς ή προσαρτημένους φακέλους και S3-compatible storage, όπως MinIO. Με μεμονωμένες και μαζικές λήψεις.</p>
+                        <span class="feature-detail">Φάκελοι · S3-compatible storage</span>
+                    </article>
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book"/></svg></div>
+                        <h3>Τεκμηρίωση που γίνεται κατανοητή</h3>
+                        <p>Αυτόματη παραγωγή OpenAPI, διαδραστική τεκμηρίωση Swagger UI και οδηγός χρήσης με απλή γλώσσα και πρακτικά παραδείγματα.</p>
+                        <span class="feature-detail">OpenAPI · Swagger UI · Οδηγός χρήσης</span>
+                    </article>
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-document"/></svg></div>
+                        <h3>Έτοιμα στοιχεία για το data.gov.gr</h3>
+                        <p>Περιγραφές, άδειες, σύνδεσμοι πρόσβασης και τεκμηρίωσης συγκεντρώνονται σε ειδική οθόνη, έτοιμα για αντιγραφή στην εθνική πύλη.</p>
+                        <span class="feature-detail">Άμεση προετοιμασία καταχώρισης</span>
+                    </article>
+                    <article class="card">
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg></div>
+                        <h3>Άδειες και όροι, από απλές φόρμες</h3>
+                        <p>Επιλέξτε CC0, CC BY ή ειδική άδεια. Δημοσιεύστε όρους χρήσης και κριτήρια ποιότητας υπηρεσίας μέσα από το περιβάλλον διαχείρισης.</p>
+                        <span class="feature-detail">Σαφείς όροι περαιτέρω χρήσης</span>
+                    </article>
+                </div>
+                <section class="control-panel" aria-labelledby="control-title">
+                    <div class="compact-heading">
+                        <p class="eyebrow">Ο έλεγχος παραμένει σε εσάς</p>
+                        <h3 id="control-title">Πολιτικές πρόσβασης &amp; διαχείριση</h3>
+                    </div>
+                    <div class="feature-grid">
+                        <article class="card">
+                            <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"/></svg></div>
+                            <h4>Πολιτικές API</h4>
+                            <p>CORS, rate limiting, slow down και cache απαντήσεων για δεδομένα βάσης.</p>
+                        </article>
+                        <article class="card">
+                            <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-key"/></svg></div>
+                            <h4>Πρόσβαση με κλειδί API</h4>
+                            <p>Προστασία επιλεγμένων endpoints όταν απαιτείται ειδική, περιορισμένη πρόσβαση.</p>
+                        </article>
+                        <article class="card">
+                            <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"/></svg></div>
+                            <h4>Διαχείριση &amp; στατιστικά</h4>
+                            <p>Ενεργοποίηση ή απόκρυψη συνόλων και endpoints, επιλεγμένες ρυθμίσεις χωρίς επανεκκίνηση και στατιστικά χρήσης.</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section section-tinted" aria-labelledby="workflow-title">
+            <div class="container">
+                <div class="section-heading">
+                    <div><p class="eyebrow">Από την πηγή στη δημοσίευση</p><h2 id="workflow-title">Μια ξεκάθαρη διαδικασία.<br>Τρία απλά βήματα.</h2></div>
+                </div>
+                <ol class="steps">
+                    <li><span class="step-marker" aria-hidden="true"><span class="status-dot"></span></span><h3>Επιλέγετε τα δεδομένα</h3><p>Ορίζετε την πηγή και επιλέγετε τα πεδία ή τα αρχεία που θέλετε να διαθέσετε.</p></li>
+                    <li><span class="step-marker" aria-hidden="true"><span class="status-dot"></span></span><h3>Οργανώνετε το σύνολο</h3><p>Προσθέτετε τίτλο, περιγραφή και στοιχεία άδειας. Συνδέετε το API, τα αρχεία ή και τα δύο.</p></li>
+                    <li><span class="step-marker" aria-hidden="true"><span class="status-dot"></span></span><h3>Δημοσιεύετε &amp; καταχωρίζετε</h3><p>Το σύνολο εμφανίζεται στην πύλη σας. Αντιγράφετε τα έτοιμα στοιχεία για την καταχώριση στο data.gov.gr.</p></li>
+                </ol>
+                <a class="text-link" href="https://data-gov-gr.gitbook.io/guides/diaxeirisi-dedomenon/synola-dedomenon" target="_blank" rel="noopener noreferrer">Οδηγός συνόλων δεδομένων του data.gov.gr <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg><span class="visually-hidden"> (νέα καρτέλα)</span></a>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="contact-panel">
+                    <div class="contact-copy"><p class="eyebrow">Το επόμενο βήμα για τον φορέα σας</p><h2 id="contact-title">Προσφέρετε τα δεδομένα σας.<br><span class="text-accent">Εύκολα και οργανωμένα.</span></h2><p>Μιλήστε με την Computer Studio για τις πηγές δεδομένων και τις ανάγκες του φορέα σας, και γνωρίστε το OpenPort.</p><a class="button" href="https://www.computerstudio.gr/epikoinonia/" target="_blank" rel="noopener noreferrer">Επικοινωνήστε μαζί μας <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+                    <div class="contact-mark" aria-hidden="true"><img src="resources/icon.svg" width="88" height="80" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="technical" class="technical-section" aria-labelledby="technical-title">
+            <div class="container technical-grid">
+                <div><p class="eyebrow">Για την ομάδα πληροφορικής</p><h2 id="technical-title">Στη δική σας υποδομή.</h2></div>
+                <dl class="technical-details">
+                    <div><dt>Εγκατάσταση</dt><dd>Node.js / Express, δυνατότητα εκτέλεσης σε Docker και οδηγός εγκατάστασης.</dd></div>
+                    <div><dt>Βάση δεδομένων</dt><dd>Σύνδεση σε PostgreSQL για τη λειτουργία της πλατφόρμας και τη διάθεση δεδομένων.</dd></div>
+                    <div><dt>Τροφοδότηση δεδομένων</dt><dd>Ροή ETL όταν απαιτείται μεταφορά ή επεξεργασία των πηγών πριν από τη δημοσίευση.</dd></div>
+                    <div><dt>Δικτυακή πρόσβαση</dt><dd>Δημόσια πρόσβαση μέσω HTTPS με reverse proxy.</dd></div>
+                </dl>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand"><a class="brand" href="#top" aria-label="OpenPort — στην αρχή της σελίδας"><img src="resources/logo.svg" width="270" height="80" alt="OpenPort"></a><p>Η πύλη των ανοικτών δεδομένων σας.</p></div>
+                <nav class="footer-links" aria-label="Εταιρικοί σύνδεσμοι"><a href="https://www.computerstudio.gr/" target="_blank" rel="noopener noreferrer">Computer Studio <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg></a><a href="https://www.computerstudio.gr/epikoinonia/" target="_blank" rel="noopener noreferrer">Σελίδα επικοινωνίας <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></nav>
+            </div>
+            <div class="footer-bottom"><small>© <span id="copyright-year">2026</span> <a href="https://www.computerstudio.gr/" target="_blank" rel="noopener noreferrer">Computer Studio Α.Ε.</a> All rights reserved.</small></div>
+        </div>
+    </footer>
+</body>
+</html>
